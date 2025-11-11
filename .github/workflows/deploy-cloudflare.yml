@@ -28,9 +28,29 @@ jobs:
       - name: Build Angular app
         run: npm run build
 
+      # - name: Deploy to Cloudflare Pages
+      #   uses: cloudflare/wrangler-action@v3
+      #   with:
+      #     apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      #     accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      #     command: pages deploy dist/angular-cloudflare-demo-app/browser --project-name=learn-ron-app --branch=main
+
+      - name: Show dist contents
+        run: |
+          echo "Listing dist directory (for debugging)"
+          ls -la dist || true
+          ls -la dist/* || true
+
       - name: Deploy to Cloudflare Pages
-        uses: cloudflare/wrangler-action@v3
-        with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/angular-cloudflare-demo-app/browser --project-name=learn-ron-app --branch=main
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          # pick the first directory under dist (works for typical Angular builds)
+          DIST_DIR=$(ls -d dist/* 2>/dev/null | head -n1 || true)
+          if [ -z "$DIST_DIR" ]; then
+            echo "No build output found in dist/ — failing early."
+            ls -la
+            exit 1
+          fi
+          echo "Publishing directory: $DIST_DIR"
+          npx wrangler pages publish "$DIST_DIR" --project-name=learn-ron-app --branch=main --commit-ref "$GITHUB_SHA"
