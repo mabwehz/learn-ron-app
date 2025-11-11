@@ -1,59 +1,120 @@
-# LearnRonApp
+# Learn Ron App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.5.
+**Learn Ron** is a mobile-first, open-source web application that helps English speakers, linguists, and Ron people learn and preserve the **Ron language**.  
+It focuses on cultural context, direct English-to-Ron translations, and the history of the Ron people — built for speed, accessibility, and simplicity.
 
-## Development server
+---
 
-To start a local development server, run:
+## 🌍 Project Overview
 
+| **Aspect** | **Description** |
+|-------------|-----------------|
+| **Goal** | To create a fast, easy-to-use dictionary-style web app for learning the Ron language. |
+| **Audience** | Linguists, general language enthusiasts, and Ron people interested in language preservation. |
+| **Core Idea** | Emphasize cultural context, word-to-word translation, and educational materials like translations of common texts (e.g., *The Lord’s Prayer*). |
+| **Frontend Repo** | [`learn-ron-app`](https://github.com/yourusername/learn-ron-app) |
+| **Backend Repo** | [`learn-ron-api`](https://github.com/yourusername/learn-ron-api) |
+
+---
+
+## 🧠 Core Features
+
+- **English → Ron Dictionary** — searchable and filterable word list  
+- **Word Details** — forms, remarks, and (future) pronunciation audio  
+- **Favorites** — logged-in users can bookmark words  
+- **Cultural Section** — background on the Ron people and traditions  
+- **Role-based Access Control**  
+  - *Public*: view all words  
+  - *Learner*: save favorites  
+  - *Editor*: create/update words  
+  - *Admin*: create/update/delete words  
+  - *Super Admin*: manage users and roles  
+- **Light/Dark Theme Switcher** — inspired by Ron colors (red, white)  
+- **Fast & Mobile-First Design** — optimized for slow internet connections  
+
+---
+
+## 🏗️ Tech Stack
+
+| **Layer** | **Technology** |
+|------------|----------------|
+| **Frontend** | Angular |
+| **Backend** | Hono |
+| **Database** | MongoDB |
+| **Auth & Roles** | better-auth |
+| **Infra & Hosting** | Cloudflare |
+| **Data Source** | Initial English-to-Ron CSV (~1,000 words) |
+
+---
+
+## 🚀 Development Setup
+
+### 1. Install dependencies
+```bash
+npm install
+```
+
+### 2. Run the development server
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Then open your browser at [`http://localhost:4200/`](http://localhost:4200/).  
+The app will reload automatically whenever you modify source files.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
+### 3. Build for production
 ```bash
 ng build
 ```
+Build artifacts are stored in the `dist/` directory. Production builds are optimized for speed and performance.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+### 4. Run tests
+- **Unit tests:**  
+  ```bash
+  ng test
+  ```
+- **End-to-end tests:**  
+  ```bash
+  ng e2e
+  ```
 
-## Running unit tests
+---
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+## 📁 Project Structure (Frontend)
+```
+learn-ron-app/
+│
+├── src/
+│   ├── app/
+│   │   ├── components/       # Reusable UI components
+│   │   ├── pages/            # Dictionary, Word Details, About
+│   │   ├── services/         # API, Auth, and Data services
+│   │   ├── models/           # TypeScript interfaces for word data
+│   │   └── guards/           # Role-based access control
+│   ├── assets/               # Icons, images, etc.
+│   └── environments/         # Environment configs
+└── ...
 ```
 
-## Running end-to-end tests
+---
 
-For end-to-end (e2e) testing, run:
+## 📜 License
 
-```bash
-ng e2e
-```
+This project is licensed under the **GNU General Public License v3.0 (GPL-3.0)**.  
+That means all modified versions must remain open-source under the same license.
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+---
 
-## Additional Resources
+## 💬 Acknowledgments
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Inspired by the desire to preserve and promote the **Ron language and culture**.  
+- Built with modern web technologies to make language learning accessible to all.
+
+---
+
+## 🔗 Additional Resources
+
+- [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli)  
+- [Ron Language (Wikipedia)](https://en.wikipedia.org/wiki/Ron_language)
+
+---
