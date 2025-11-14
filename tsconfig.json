@@ -13,14 +13,37 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "ES2022",
-    "module": "preserve"
+    "module": "preserve",
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "useUnknownInCatchVariables": true
   },
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "typeCheckHostBindings": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "strictStandalone": true,
+    "fullTemplateTypeCheck": true,
+    "enableI18nLegacyMessageIdFormat": false,
+    "disableTypeScriptVersionCheck": true,
+    "extendedDiagnostics": {
+      "checks": {
+        "optionalChainNotNullable": "suppress",
+        "nullishCoalescingNotNullable": "suppress",
+        "suffixNotSupported": "warning",
+        "textAttributeNotBinding": "warning",
+        "invalidBananaInBox": "error",
+        "missingControlFlowDirective": "error",
+        "missingNgForOfLet": "error",
+        "controlFlowPreventingContentProjection": "error",
+        "unusedStandaloneImports": "warning"
+      },
+      "defaultCategory": "error"
+    }
   },
   "files": [],
   "references": [
