@@ -1,0 +1,19 @@
+/* FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+/* TAILWIND AND DAISYUI */
+@import "tailwindcss";
+/* @plugin "daisyui"; */
+
+@plugin "daisyui" {
+    themes: light --default, dark --prefersdark, emerald;
+}
+
+/* DESIGN SYSTEM VARIABLES */
+:root {
+    --color-ron-red: #D11D27;
+    --color-lexicon-black: #1D2024;
+    --color-parchment-white: #FFFAEF;
+    --font-display: 'Inter', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}

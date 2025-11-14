@@ -1,0 +1,99 @@
+
+ /* Base Component Styles - Previously applied to <body> */
+ .ron-lexicon-component {
+     font-family: var(--font-body);
+     color: var(--color-lexicon-black);
+     background-color: var(--color-parchment-white);
+     padding: 1em;
+     line-height: 1.6;
+     max-width: 70vw;
+     /* Ensures the component centers and controls its own width */
+     box-sizing: border-box;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+ header {
+     background-color: var(--color-ron-red);
+     color: white;
+     padding: 1.5rem 1rem;
+     text-align: center;
+     font-family: var(--font-display);
+ }
+
+ header h1 {
+     margin: 0;
+     font-size: 1.8rem;
+     letter-spacing: 1px;
+ }
+
+ /* Content Area */
+ .content {
+     padding: 1rem;
+ }
+
+ h2 {
+     font-family: var(--font-display);
+     color: var(--color-ron-red);
+     font-size: 1.5rem;
+     border-bottom: 2px solid var(--color-ron-red);
+     padding-bottom: 0.3rem;
+     margin-top: 1.5rem;
+ }
+
+
+ p,
+ ul,
+ li {
+     font-size: 1rem;
+ }
+
+ /* Specific Sections */
+ .alphabet-list {
+     list-style: none;
+     padding: 0;
+     display: flex;
+     flex-wrap: wrap;
+     gap: 10px;
+     margin-top: 1rem;
+ }
+
+ .alphabet-list li {
+     background-color: white;
+     border: 1px solid var(--color-ron-red);
+     padding: 5px 10px;
+     border-radius: 4px;
+     font-size: 1.1rem;
+     font-family: monospace;
+     flex: 0 0 auto;
+ }
+
+ .key-data-grid {
+    padding-top: 1em;
+     display: grid;
+     grid-template-columns: 1fr;
+     gap: 0.5rem;
+ }
+
+ .data-item {
+     background-color: rgba(209, 29, 39, 0.05);
+     /* Light Ron Red background */
+     padding: 0.75rem;
+     border-left: 3px solid var(--color-ron-red);
+ }
+
+ .data-item strong {
+     display: block;
+     font-size: 0.9rem;
+     color: var(--color-ron-red);
+     margin-bottom: 0.25rem;
+ }
+
+ /* Mobile Adjustments */
+ @media (min-width: 600px) {
+     .key-data-grid {
+         grid-template-columns: repeat(2, 1fr);
+     }
+ }

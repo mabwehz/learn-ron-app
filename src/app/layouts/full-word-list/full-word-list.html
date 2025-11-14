@@ -1,0 +1,11 @@
+<div class="wrapper">
+    <ul>
+        @for (word of words; track word.id) {
+        <li>
+            <strong>{{ word.ron }}</strong> - {{ word.english }}
+        </li>
+        } @empty {
+        <li>There are no items.</li>
+        }
+    </ul>
+</div>

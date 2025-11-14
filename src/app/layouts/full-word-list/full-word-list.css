@@ -1,0 +1,5 @@
+.wrapper {
+    padding: 1em;
+    border: 1px solid var(--color-ron-red);
+    margin-top: 2em;
+}
