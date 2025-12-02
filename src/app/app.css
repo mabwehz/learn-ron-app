@@ -1,6 +1,5 @@
 .app {
-    display: flex;
-    flex-direction: column;
+    display:block;
     min-height: 100vh;
 }
 
@@ -9,6 +8,27 @@
     flex: 1;
     display: flex;
     justify-content: center;
-    width: 100vw;
+    min-height: 100vh;
+    width: 100%;
     margin: 1em 0;
+}
+
+.scroll-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: var(--color-ron-red);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-size: 1.5rem;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: var(--color-secondary);
 }

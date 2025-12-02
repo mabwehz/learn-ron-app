@@ -1,6 +1,6 @@
-import { Component, inject } from '@angular/core';
-import { RonWord, RonWordService } from '../../services/ron-word';
 import { CommonModule } from '@angular/common';
+import { Component, inject, OnInit } from '@angular/core';
+import { RonWord, RonWordService } from '../../services/ron-word';
 
 @Component({
   selector: 'app-full-word-list',
@@ -8,9 +8,9 @@ import { CommonModule } from '@angular/common';
   templateUrl: './full-word-list.html',
   styleUrl: './full-word-list.css'
 })
-export class FullWordList {
+export class FullWordList implements OnInit {
 
-  private ronWordService: RonWordService= inject(RonWordService);
+  private readonly ronWordService: RonWordService= inject(RonWordService);
   words: RonWord[] = [];
 
   ngOnInit(): void {

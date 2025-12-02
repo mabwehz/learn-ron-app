@@ -1,19 +1,80 @@
 /* FONTS */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 /* TAILWIND AND DAISYUI */
 @import "tailwindcss";
-/* @plugin "daisyui"; */
 
-@plugin "daisyui" {
-    themes: light --default, dark --prefersdark, emerald;
+/* @plugin "daisyui" {
+    themes: light --default, dark --prefersdark, garden, cyberpunk, emerald, cupcake, winter, sunset;
+} */
+
+@plugin "daisyui";
+@plugin "daisyui/theme" {
+  name: "emerald";
+  default: true;
+  --color-primary: #50C878;
+  --color-secondary: #D11D27;
+  --color-ron-black: #1D2024;
+  --color-rob-white: #f9f6ef;
 }
 
 /* DESIGN SYSTEM VARIABLES */
 :root {
     --color-ron-red: #D11D27;
-    --color-lexicon-black: #1D2024;
-    --color-parchment-white: #FFFAEF;
+    --color-ron-green: #50C878;
+    --color-ron-black: #1D2024;
+    --color-ron-white: #f9f6ef;
     --font-display: 'Inter', sans-serif;
-    --font-body: 'Roboto', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
 }
+
+/* UTILITIES: SPINNERS etc */
+.loader{
+  width: 100px;
+  height: 75px;
+  margin: 0 auto;
+  background: #fff;
+  position: relative;
+  border-radius: 100%;
+}
+.loader:before {
+  content: '';
+  position: absolute;
+  box-sizing: border-box;
+  border: 15px solid transparent;
+  border-top: 25px solid #fff;
+  transform: rotate(45deg);
+  top: 50px;
+  left: -15px;
+}
+
+.loader:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50% , -50%);
+  border-radius: 50%;
+  background-color: #FF3D00;
+  box-shadow: 20px 0 #FF3D00, -20px 0 #FF3D00;
+  animation: flash 0.5s ease-out infinite alternate;
+}
+
+@keyframes flash {
+  0% {
+    background-color: rgba(255, 60, 0, 0.25);
+    box-shadow: 20px 0 rgba(255, 60, 0, 0.25), -20px 0 #FF3D00;
+  }
+  50% {
+    background-color: #FF3D00;
+    box-shadow: 20px 0 rgba(255, 60, 0, 0.25), -20px 0 rgba(255, 60, 0, 0.25);
+  }
+  100% {
+    background-color: rgba(255, 60, 0, 0.25);
+    box-shadow: 20px 0 #FF3D00, -20px 0 rgba(255, 60, 0, 0.25);
+  }
+}
+      

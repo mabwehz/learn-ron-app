@@ -1,0 +1,36 @@
+<header class="mt-2">
+    <h1 class="text-2xl">Sample Phrases</h1>
+    <p>Refer to these words to get yourself familiar with Ron fast!</p>
+</header>
+<div class="divider"></div>
+<div class="word-card-container text-left justify-start">
+
+    <div class="overflow-x-auto h-100 w-full">
+        <table class="table table-md table-pin-rows table-pin-cols">
+            <thead>
+                <tr>
+                    <td>Ron</td>
+                    <td>English</td>
+                </tr>
+            </thead>
+            <tbody>
+                @defer {
+                @for (samplePhrase of samplePhrases; track samplePhrase.id) {
+                <tr>
+                    <td>{{ samplePhrase.ron }}</td>
+                    <td>{{ samplePhrase.english }}</td>
+                </tr>
+                }
+                } @loading {
+                <tr>
+                    <td colspan="2"><span class="loader"></span></td>
+                </tr>
+                } @placeholder {
+                <tr>
+                    <td colspan="2">Sample words..</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
