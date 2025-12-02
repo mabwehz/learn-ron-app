@@ -1,30 +1,57 @@
 <div class="gap-2 wrapper">
 
-    <div class="language-switcher">English to Ron</div>
+    <div class="language-switcher text-5xl">English <span class="text-primary">→</span> Ron</div>
 
-    <div class="search-input">
-        <label class="input">
-            <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.3-4.3"></path>
-                </g>
-            </svg>
-            <input type="search" required placeholder="Search" />
-        </label>
+    <div class="text-md mt-3 hover:text-primary">
+        <a class="italic underline" routerLink="/sample-phrases">Simple Ron phrases</a>
     </div>
 
-    <div class="see-full-word-list-text">
-        <a class="italic underline" routerLink="/full-word-list">See full word list</a>
-    </div>
+    <form autocomplete="on">
+        <div class="search-input mt-3">
+            <label class="input w-md h-16">
+                <svg class="h-[1.5em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none"
+                        stroke="currentColor">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.3-4.3"></path>
+                    </g>
+                </svg>
+                <input
+                    class="input-xl w-full placeholder-gray-500 placeholder-opacity-50 placeholder:text-ssm  placeholder:align-middle"
+                    type="search" placeholder="Enter english word..." />
+            </label>
+        </div>
+    </form>
 
-    <hr>
-
-    <div class="word-card-container">
-        @for (word of words; track word.id) {
-        <app-word-card [ronWord]="word"></app-word-card>
-        } @empty {
-        <span>There are no items.</span>
+    <div class="word-index-container flex flex-wrap gap-2 mt-3">
+        @for (char of alphabets; track char) {
+            <div class="lg:tooltip" [attr.data-tip]="char === 'ɓ' ? 'Implosive b' : char === 'ɗ' ? 'Implosive d' : ''">
+                <button class="btn btn-soft char-btn">
+                    <a class="btn btn-sm btn-ghost font-mono text-xl" href="#{{ char }}">{{ char }} </a>
+                </button>
+            </div>
         }
     </div>
+
+    <div class="p-2 w-full mt-6">
+        @for (char of alphabets; track char) {
+            <h3 class="text-2xl underline" [id]="char">{{ char | uppercase }}</h3>
+            <div class="divider"></div>
+
+            <div class="word-card-container text-left justify-start">
+                @defer {
+                @for (word of transformedAlphabetsWordList[char]; track word.id) {
+                    <app-word-card [ronWord]="word"></app-word-card>
+                } @empty {
+                    <p class="italic">No word found...</p>
+                }
+                } @loading {
+                    <span class="loader"></span>
+                } @placeholder {
+                    <p>Words starting with '{{ char }}'..</p>
+                }
+            </div>
+        }
+    </div>
+
 </div>

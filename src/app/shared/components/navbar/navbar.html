@@ -1,13 +1,14 @@
-<div class="shadow-sm navbar bg-base-100">
+<div class="sticky w-full top-0 shadow-sm navbar bg-base-100 z-50">
   <div class="flex-1">
-    <a routerLink="/" class="text-xl btn btn-ghost">Ron Learn</a>
+    <a routerLink="/" class="text-xl btn btn-ghost">Learn Ron</a>
   </div>
   <div class="flex-none">
     <ul class="px-1 menu menu-horizontal">
       <li><a routerLink="/about">Ron History</a></li>
       <li><label class="swap swap-rotate">
           <!-- this hidden checkbox controls the state -->
-          <input type="checkbox" class="theme-controller" value="emerald" />
+          <!-- <input type="checkbox" class="theme-controller" value="emerald" /> -->
+           <input type="checkbox" class="theme-controller" data-toggle-theme="dark,emerald" data-act-class="ACTIVECLASS" />
 
           <!-- sun icon -->
           <svg class="w-5 h-5 fill-current swap-off" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

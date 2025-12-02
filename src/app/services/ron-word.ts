@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { BehaviorSubject, Observable } from 'rxjs';
-import { RON_WORD_MOCK_DATA } from './ron-word.mock-data';
+import { RON_SAMPLE_PHRASES_MOCK_DATA, RON_WORD_MOCK_DATA } from './ron-word.mock-data';
 
 export interface RonWord {
   id?: string;
@@ -16,7 +16,8 @@ export interface RonWord {
 })
 export class RonWordService {
 
-  private words$ = new BehaviorSubject<RonWord[]>(RON_WORD_MOCK_DATA);
+  private readonly words$ = new BehaviorSubject<RonWord[]>(RON_WORD_MOCK_DATA);
+  private readonly samplePhrases$ = new BehaviorSubject<RonWord[]>(RON_SAMPLE_PHRASES_MOCK_DATA);
 
   constructor() { }
 
@@ -47,5 +48,10 @@ export class RonWordService {
   // Get top N words (most recent or by frequency)
   getTopWords(limit: number = 10): RonWord[] {
     return this.words$.value.slice(0, limit);
+  }
+
+  // Get sample phrases
+  getSamplePhrases(): Observable<RonWord[]> {
+    return this.samplePhrases$.asObservable();
   }
 }

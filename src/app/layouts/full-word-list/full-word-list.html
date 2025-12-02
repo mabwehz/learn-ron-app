@@ -1,4 +1,5 @@
 <div class="wrapper">
+    @defer {
     <ul>
         @for (word of words; track word.id) {
         <li>
@@ -8,4 +9,9 @@
         <li>There are no items.</li>
         }
     </ul>
+    } @loading {
+        <span class="loader"></span>
+    } @placeholder {
+        <p>Loading full word list...</p>
+    }
 </div>

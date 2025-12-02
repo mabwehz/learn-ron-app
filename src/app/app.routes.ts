@@ -14,5 +14,11 @@ export const routes: Routes = [
         path: 'full-word-list',
         loadComponent: () => import('./layouts/full-word-list/full-word-list')
             .then(mod => mod.FullWordList)
+    },
+
+    {
+        path: 'sample-phrases',
+        loadComponent: () => import('./layouts/sample-phrases/sample-phrases')
+            .then(mod => mod.SamplePhrases)
     }
 ];
