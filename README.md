@@ -2,6 +2,7 @@
 
 **Learn Ron** is a mobile-first, open-source web application that helps English speakers, linguists, and Ron people learn and preserve the **Ron language**.  
 It focuses on cultural context, direct English-to-Ron translations, and the history of the Ron people — built for speed, accessibility, and simplicity.
+I love Ron language.
 
 ---
 
